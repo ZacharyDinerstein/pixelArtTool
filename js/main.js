@@ -23,8 +23,12 @@ function createDivs(numOfDivs) {
 
 function changeColorOnHover(color){
 	$('.canvas > div').hover(function(){
-		$(this).addClass(color);
+		$(this).removeClass().addClass(color);
 	});
+}
+
+function changeBrushColor(color){
+	changeColorOnHover(color);
 }
 
 // Helper Functions
@@ -32,17 +36,29 @@ function appendElement(target, element){
 	$(target).append(element);
 }
 
+// Event Listeners
+function listen(){
+	$('.color-buttons > button').on( "click", function() {
+		var buttonColor = $( this ).text().toLowerCase();
+		changeBrushColor(buttonColor);
+	});
+	$('.brush-buttons > button').on( "click", function() {
+		var brushType = $( this ).text().toLowerCase().replace(/\s+/g, '');
+		// changeBrushType(brushType);
+	});
+}
+
+
 
 
 // FUNCTION CALLS
 
 buildCanvas('canvas', 989);
 changeColorOnHover('red');
-
+listen();
 
 
 
 /* TODO
- - Write funciton that adds any number of squares to canvas div
- - 
+ - Write function that switches the type of brush we're using.
 */

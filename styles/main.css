@@ -16,6 +16,12 @@
 .canvas .red {
   background-color: red;
 }
+.canvas .yellow {
+  background-color: yellow;
+}
+.canvas .green {
+  background-color: green;
+}
 .button-container {
   float: left;
   width: 300px;
@@ -30,4 +36,7 @@
   font-size: 1em;
   font-weight: 600;
   background-color: lightgray;
+}
+.button-container button:active {
+  outline: none;
 }
