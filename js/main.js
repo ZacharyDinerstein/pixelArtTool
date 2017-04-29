@@ -1,7 +1,10 @@
 // VARIABLES
 
 var pixelCanvas = "";
-var brush = {};
+var brush = {
+	color: 'red',
+	brushType: 'hover'
+};
 
 
 
@@ -54,13 +57,14 @@ function listen(){
 	//Change brush color based on clicked button
 	$('.color-buttons > button').on( "click", function() {
 		var buttonColor = $( this ).text().toLowerCase();
-		changeBrushColor(buttonColor);
+		brush.color = buttonColor;
+		changeBrushColor(brush.color);
 	});
 
 	//Change brush type based on clicked button
 	$('.brush-buttons > button').on( "click", function() {
 		var brushType = $( this ).text().toLowerCase().replace(/\s+/g, '');
-		// changeBrushType(brushType);
+		brush.brushType = brushType;
 	});
 }
 
@@ -79,6 +83,10 @@ listen();
  - Buttons
  	- When a button is clicked
 		- Update brush attributes
+
+- Store attributes in a brush veriable;
+	- when color is clicked, change brush color
+	- pull new brush color from variable
 
 
  - Write function that switches the type of brush we're using.
