@@ -1,4 +1,8 @@
 /*GLOBAL VARIBLES*/
+/* HELPER CLASSES */
+.selected {
+  background-color: #8a8a8a;
+}
 .canvas {
   max-width: 594px;
   display: inline-block;
@@ -26,7 +30,7 @@
   float: left;
   width: 300px;
 }
-.button-container button {
+button {
   padding: 10px;
   width: 205px;
   display: block;
@@ -37,9 +41,11 @@
   font-weight: 600;
   background-color: lightgray;
 }
-.button-container button:active {
+button:active,
+button:focus {
   outline: none;
 }
-.button-container button:hover {
+button:hover {
   background-color: #8a8a8a;
+  cursor: pointer;
 }
