@@ -3,7 +3,7 @@
 var pixelCanvas = "";
 var brush = {
 	color: 'red',
-	brushType: 'hover'
+	brushType: 'mouseover'
 };
 
 
@@ -24,20 +24,12 @@ function createDivs(numOfDivs) {
 	return newString;
 }
 
-function createBrush(color, brushType){
-	this.color = color;
-	this.brushType = brushType;
-}
-
-function colorPixelOnHover(color){
-	$('.canvas > div').hover(function(){
+function applyBrushChanges(color, brushType){
+	$('.canvas > div').off().on( brushType, function(){
 		$(this).removeClass().addClass(color);
 	});
 }
 
-function changeBrushColor(color){
-	colorPixelOnHover(color);
-}
 
 // Helper Functions
 function appendElement(target, element){
@@ -58,13 +50,14 @@ function listen(){
 	$('.color-buttons > button').on( "click", function() {
 		var buttonColor = $( this ).text().toLowerCase();
 		brush.color = buttonColor;
-		changeBrushColor(brush.color);
+		applyBrushChanges(brush.color, brush.brushType);
 	});
 
 	//Change brush type based on clicked button
 	$('.brush-buttons > button').on( "click", function() {
-		var brushType = $( this ).text().toLowerCase().replace(/\s+/g, '');
+		var brushType = $( this ).text().toLowerCase().substring(0, $( this ).text().indexOf(' '));
 		brush.brushType = brushType;
+		applyBrushChanges(brush.color, brush.brushType);
 	});
 }
 
@@ -74,19 +67,16 @@ function listen(){
 // FUNCTION CALLS
 
 buildCanvas('canvas', 989);
-colorPixelOnHover('red');
+applyBrushChanges(brush.color, brush.brushType);
 listen();
 
 
 
 /* TODO
- - Buttons
- 	- When a button is clicked
-		- Update brush attributes
-
 - Store attributes in a brush veriable;
-	- when color is clicked, change brush color
-	- pull new brush color from variable
+	- change type of brush we use based on which button is clicked
+		- Dynamically change painting function
+
 
 
  - Write function that switches the type of brush we're using.
