@@ -40,3 +40,6 @@
 .button-container button:active {
   outline: none;
 }
+.button-container button:hover {
+  background-color: #8a8a8a;
+}

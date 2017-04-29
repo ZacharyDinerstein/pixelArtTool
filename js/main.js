@@ -60,5 +60,10 @@ listen();
 
 
 /* TODO
+ - Buttons
+ 	- Highlight when selected
+
+
  - Write function that switches the type of brush we're using.
+
 */
