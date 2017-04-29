@@ -53,5 +53,6 @@ button:hover {
   cursor: pointer;
 }
 .sp-picker-container {
-  width: auto;
+  width: inherit;
+  max-width: 205px;
 }
