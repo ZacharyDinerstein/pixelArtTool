@@ -26,6 +26,9 @@
 .canvas .green {
   background-color: green;
 }
+.canvas .black {
+  background-color: black;
+}
 .button-container {
   float: left;
   width: 300px;
@@ -48,4 +51,7 @@ button:focus {
 button:hover {
   background-color: #8a8a8a;
   cursor: pointer;
+}
+.sp-picker-container {
+  width: auto;
 }

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles/spectrum.css">
 	<link rel="stylesheet" href="styles/main.css">
 	<title>Pixel Art Tool</title>
 </head>
@@ -10,9 +11,12 @@
 		<section class="canvas"></section>
 		<section class="button-container color-buttons">
 			<h1>Select A Color</h1>
+			<input type='text' class="basic"/>
+			<em id='basic-log'></em>
 			<button class="button-red">RED</button>
 			<button class="button-yellow">YELLOW</button>
 			<button class="button-green">GREEN</button>
+			<button class="button-black">BLACK</button>
 		</section>
 		<section class="button-container brush-buttons">
 			<h1>Select Brush Type</h1>
@@ -21,6 +25,7 @@
 		</section>
 	</main>
 	<script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+	<script type="text/javascript" src="js/spectrum.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
