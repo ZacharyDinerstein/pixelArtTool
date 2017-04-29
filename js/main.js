@@ -82,6 +82,8 @@ listen();
 
 
 /* TODO
+- Adjust canvas color btw white & black
+
 
 
 ICEBOX:
