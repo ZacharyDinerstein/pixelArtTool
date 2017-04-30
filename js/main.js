@@ -5,9 +5,17 @@ var brush = {
 	brushType: 'mouseover'
 };
 
+var savedState = '';
+
 
 
 // FUNCTIONS
+
+function initialize(){
+	buildCanvas('canvas', 1022);
+	applyBrushChanges(brush.color, brush.brushType);
+	listen();
+}
 
 function buildCanvas(targetClass, numOfDivs){
 	var target = $('.' + targetClass);
@@ -27,6 +35,30 @@ function applyBrushChanges(color, brushType){
 	$('.canvas > div').off().on( brushType, function(){
 		$(this).css('background-color', color );
 	});
+}
+
+function saveState(){
+	var divArray = $('.canvas > div');
+	savedState = divsToString(divArray);
+	console.log(savedState);
+}
+
+function loadState(){
+	destroyCanvas()
+	appendElement( $('.canvas'), savedState);
+	applyBrushChanges(brush.color, brush.brushType);
+}
+
+function destroyCanvas(){
+	$('.canvas > div').remove();
+}
+
+function divsToString(divArray){
+	var divString = '';
+	divArray.each( function(){
+		divString += $(this).prop('outerHTML');
+	});
+	return divString;
 }
 
 
@@ -59,6 +91,16 @@ function listen(){
 	$('#black-canvas-button').on( "click", function() {
 		$('section.canvas').removeClass().addClass('canvas');
 	});
+
+	//Save State
+	$('#save-button').on('click', function(){
+		saveState();
+	});
+
+	//Load State
+		$('#load-button').on('click', function(){
+		loadState();
+	});
 }
 
 // SPECTRUM JS
@@ -82,21 +124,18 @@ $("#full").spectrum({
 
 
 // FUNCTION CALLS
+initialize();
 
-buildCanvas('canvas', 1022);
-applyBrushChanges(brush.color, brush.brushType);
-listen();
 
 
 /* TODO
-- Create database that will store your pictures
-	- Create a funciton to roll over each div and store attributes in an object
-	
+- Refactor Save and Load functionality (Can definately condense those)
 
 
 
 ICEBOX:
 - Alter brush size
+- Create database that will store your pictures
 - Make everything much pretier
 - Create the ability to save and play animations 
 
