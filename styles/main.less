@@ -27,9 +27,26 @@
 	}
 }
 
+.white-canvas {
+	max-width: 665px;
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+
+	div {
+		background-color: white;
+		border-right: 1px solid black;
+		border-bottom: 1px solid black;
+	}
+
+}
+
 .button-container {
 	float: left;
 	width: 300px;
+	margin-bottom: 30px;
+	&.color-buttons {
+		margin-bottom: 100%;
+	}
 }
 
 button {

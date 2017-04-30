@@ -17,21 +17,23 @@
   margin: 0px 0px -4px 0px;
   padding: 0px;
 }
-.canvas .red {
-  background-color: red;
+.white-canvas {
+  max-width: 665px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
 }
-.canvas .yellow {
-  background-color: yellow;
-}
-.canvas .green {
-  background-color: green;
-}
-.canvas .black {
-  background-color: black;
+.white-canvas div {
+  background-color: white;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
 }
 .button-container {
   float: left;
   width: 300px;
+  margin-bottom: 30px;
+}
+.button-container.color-buttons {
+  margin-bottom: 100%;
 }
 button {
   padding: 10px;

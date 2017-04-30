@@ -1,6 +1,5 @@
 // VARIABLES
 
-var pixelCanvas = "";
 var brush = {
 	color: 'red',
 	brushType: 'mouseover'
@@ -52,6 +51,14 @@ function listen(){
 		brush.brushType = brushType;
 		applyBrushChanges(brush.color, brush.brushType);
 	});
+
+	//Change canvas color based on button clicked
+	$('#white-canvas-button').on( "click", function() {
+		$('section.canvas').addClass('white-canvas');
+	});
+	$('#black-canvas-button').on( "click", function() {
+		$('section.canvas').removeClass().addClass('canvas');
+	});
 }
 
 // SPECTRUM JS
@@ -76,20 +83,21 @@ $("#full").spectrum({
 
 // FUNCTION CALLS
 
-buildCanvas('canvas', 989);
+buildCanvas('canvas', 1022);
 applyBrushChanges(brush.color, brush.brushType);
 listen();
 
 
 /* TODO
-- Adjust canvas color btw white & black
+- Create database that will store your pictures
+	- Create a funciton to roll over each div and store attributes in an object
+	
 
 
 
 ICEBOX:
 - Alter brush size
 - Make everything much pretier
-- Create database that will store your pictures
 - Create the ability to save and play animations 
 
 */
